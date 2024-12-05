@@ -37,7 +37,6 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           echo "Auth token length: ${#NODE_AUTH_TOKEN}"
-          echo "Registry: $(npm get registry)"
           
       - name: Publish to NPM
         env:
