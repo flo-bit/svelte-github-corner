@@ -12,19 +12,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Install Bun
-        uses: oven-sh/setup-bun@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          bun-version: latest
-          cache: true
+          node-version: '16' # Or the version your project needs
+          cache: 'npm'
 
       - name: Install dependencies
-        run: bun install
+        run: npm ci
 
       - name: Build
         env:
           BASE_PATH: '/${{ github.event.repository.name }}'
-        run: bun run build
+        run: npm run build
 
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v2
@@ -32,12 +32,15 @@ jobs:
           # This should match the `pages` option in your adapter-static options
           path: 'build/'
 
+      - name: Debug npm auth
+        run: |
+          echo "Auth token length: ${#NODE_AUTH_TOKEN}"
+          echo "Registry: $(npm get registry)"
+          
       - name: Publish to NPM
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          npm install
-          npm publish --access public
+        run: npm publish --access public
 
   deploy:
     needs: build_site
