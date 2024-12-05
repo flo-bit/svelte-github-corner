@@ -1,6 +1,6 @@
 {
   "name": "svelte-github-corner",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "author": "flo-bit",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
@@ -16,6 +16,22 @@
     "format": "prettier --write .",
     "lint": "prettier --check . && eslint ."
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flo-bit/svelte-github-corner.git"
+  },
+  "bugs": {
+    "url": "https://github.com/flo-bit/svelte-github-corner/issues"
+  },
+  "homepage": "https://flo-bit.dev/svelte-github-corner/",
+  "keywords": [
+    "svelte",
+    "sveltekit",
+    "github",
+    "corner",
+    "github-corner",
+    "icon"
+  ],
   "files": [
     "dist",
     "!dist/**/*.test.*",

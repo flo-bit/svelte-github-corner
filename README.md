@@ -2,6 +2,8 @@
 
 simple little component for adding a github corner icon to your svelte projects
 
+[see it in action](https://flo-bit.dev/svelte-github-corner/)
+
 ## install
 
 ```bash
