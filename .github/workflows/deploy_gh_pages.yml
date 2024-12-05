@@ -15,7 +15,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16' # Or the version your project needs
+          node-version: '20' # Use Node.js 20
           cache: 'npm'
 
       - name: Install dependencies
@@ -32,11 +32,6 @@ jobs:
           # This should match the `pages` option in your adapter-static options
           path: 'build/'
 
-      - name: Debug npm auth
-        run: |
-          echo "Auth token length: ${#NODE_AUTH_TOKEN}"
-          echo "Registry: $(npm get registry)"
-          
       - name: Publish to NPM
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
