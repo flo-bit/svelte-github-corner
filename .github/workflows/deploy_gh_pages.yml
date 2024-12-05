@@ -33,6 +33,8 @@ jobs:
           path: 'build/'
 
       - name: Debug npm auth
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           echo "Auth token length: ${#NODE_AUTH_TOKEN}"
           echo "Registry: $(npm get registry)"
